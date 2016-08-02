@@ -2,6 +2,8 @@
 
 - [Shrimadhav U K](shrimadhav_b130253cs@nitc.ac.in)
 
+---
+
 ### LaTeX Template Created by
 
 [Kartik Singhal](http://people.cse.nitc.ac.in/kartik "Kartik's Academic Profile")  
