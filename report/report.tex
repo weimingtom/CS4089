@@ -23,7 +23,7 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[pdftex]{graphicx} %for embedding images
 \usepackage{url} %for proper url entries
-\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={Shrimadhav U K _ B130253CS}, pdfsubject={CS4080_Project}, pdfkeywords={r,e,l,e,v,a,n,t,k,e,y,w,o,r,d,s}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={Security Implementation using Biometric}, pdfauthor={Shrimadhav U K _ B130253CS}, pdfsubject={CS4089_Project}, pdfkeywords={r,e,l,e,v,a,n,t,k,e,y,w,o,r,d,s}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
 %\usepackage[final]{pdfpages} %for embedding another pdf, remove if not required
 
 \begin{document}
@@ -31,22 +31,23 @@
 
 %include other pages
 \input{./title.tex}
-\input{./certificate.tex}
-\input{./acknow.tex}
+%\input{./certificate.tex}
+%\input{./acknow.tex}
 \input{./abstract.tex}
 
-\pagenumbering{roman} %numbering before main content starts
-\tableofcontents
-\listoffigures
+\pagenumbering{gobble} %comment out in the main project report
+%\pagenumbering{roman} %numbering before main content starts
+%\tableofcontents
+%\listoffigures
 
 \newpage
-\pagenumbering{arabic} %reset numbering to normal for the main content
+%\pagenumbering{arabic} %reset numbering to normal for the main content
 
-\input{./prob-definition.tex} %objective changed to problem definition
-\input{./introduction.tex} %literature survey included in this
-\input{./work-done.tex}
-\input{./future-work.tex}
-\input{./conclusion.tex}
-\input{./ref.tex}
+%\input{./prob-definition.tex} %objective changed to problem definition
+%\input{./introduction.tex} %literature survey included in this
+%\input{./work-done.tex}
+%\input{./future-work.tex}
+%\input{./conclusion.tex}
+%\input{./ref.tex}
 
 \end{document}
