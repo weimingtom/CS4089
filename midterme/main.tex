@@ -296,7 +296,7 @@
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
-
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={Security Implementation using Biometric}, pdfauthor={Shrimadhav U K _ B130253CS}, pdfsubject={CS4089_Project}, pdfkeywords={r,e,l,e,v,a,n,t,k,e,y,w,o,r,d,s}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
 \begin{document}
 %
 % paper title
@@ -364,7 +364,7 @@ microphone, face input from a camera, and verify the authenticity of the user
 accessing the system.
 
 \section{Motivation}
-\blindtext
+Human beings have reached a stage where 
 
 \section{Related Works}
 \begin{enumerate}
@@ -376,13 +376,18 @@ accessing the system.
 \blindtext
 
 \section{High Level Design}
-\blindtext
+\begin{enumerate}
+  \item Design a function which takes the user voice through the microphone, and the name of the user and returns True or False, accordingly.
+  \item Design a function which takes an image of the user, using the camera, and the name of the user and returns True or False, accordingly.
+  \item Finally, design a system which unifies the functions designed above. The system should be able:
+  \begin{itemize}
+    \item to override the default login screen in a GNU/Linux system.
+    \item to ensure the integrity of the confidential details created using the above functions.
+  \end{itemize}
+\end{enumerate}
 
 \section{Work Plan}
-\begin{enumerate}
-  \item Design a system which takes the user voice through the microphone and returns True or False, accordingly.
-  \item 
-\end{enumerate}
+\blindtext
 
 %\subsection{Subsection Heading Here}
 %\blindtext
