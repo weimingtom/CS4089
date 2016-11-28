@@ -31,7 +31,7 @@ def take_images_for_training(input_images, entity_name) :
     '''
     print("Starting to take the training entity images ...")
     sttime = time.clock()
-    i = '0'
+    i = 0
     path_to_save_images = input_images + os.path.sep
     capture = cv2.VideoCapture(0)
     print("keep your face in different angles")
@@ -39,20 +39,18 @@ def take_images_for_training(input_images, entity_name) :
         ret , frame = capture.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         # cv2.imshow('frame',gray)
-        print("writing to file "+str(i)+".png")
-        cv2.imwrite(path_to_save_images + str(entity_name + '_' + i) + '.png', gray)
+        print("writing to file " + str(i) + ".png")
+        cv2.imwrite(path_to_save_images + str(entity_name + '_' + str(i)) + '.png', gray)
         if cv2.waitKey(10) & 0xFF == ord('q') :
             break
-        i = int(i)
         i = i + 1
-        if i >= 10 :
+        if i > 10 :
             break
-        i = str(i)
         print("sleeping for five seconds")
         time.sleep(5)
     capture.release()
     cv2.destroyAllWindows()
-    print("Successfully completed the task in %.2f Secs." % (time.clock()- sttime))
+    print("Successfully completed the task in %.2f Secs." % (time.clock() - sttime))
 
 def detect_faces_in_image(input_images, output_faces) :
     '''
@@ -80,11 +78,11 @@ def detect_faces_in_image(input_images, output_faces) :
 			# cropImage(color_img, box)
             [p, q, r, s] = box
         	# crop and save the image provided with the co-ordinates of bounding box
-            write_img_color = color_img[q:q+ s, p:p+ r]
+            write_img_color = color_img[q:q + s, p:p + r]
         	# saveCropped(write_img_color, name)
             cv2.imwrite(output_faces + os.path.sep + filename, write_img_color)
             i = i + 1
-    print("Successfully completed the task in %.2f Secs." % (time.clock()- sttime))
+    print("Successfully completed the task in %.2f Secs." % (time.clock() - sttime))
 
 def process_cropped_images(output_faces, subject_directory) :
     print("Starting to rearrange images in appropriate directories...")
@@ -101,7 +99,7 @@ def process_cropped_images(output_faces, subject_directory) :
         new_path += os.path.sep + filename
         # moving file TODO: use Python operation instead of the hard coded value
         os.system("mv " + image_path + " " + new_path)
-    print("Successfully completed the task in %.2f Secs." % (time.clock()- sttime))
+    print("Successfully completed the task in %.2f Secs." % (time.clock() - sttime))
 
 def get_images(path, size) :
     '''
@@ -136,7 +134,7 @@ def train_model(path) :
     sttime = time.clock()
     eigen_model = cv2.createEigenFaceRecognizer()
     eigen_model.train(images, labels)
-    print("Successfully completed training in "+ str(time.clock()- sttime)+ " seconds!")
+    print("Successfully completed training in " + str(time.clock() - sttime) + " seconds!")
     return [eigen_model, people]
 
 def detect_faces(frontal_face, image) :
@@ -200,7 +198,7 @@ def the_real_test(subject_directory, frontal_face, entity_name) :
             counter += 1
             if (cv2.waitKey(5) & 0xFF == 27):
                 break
-        endtime = (time.clock()- sttime)
+        endtime = (time.clock() - sttime)
         cap.release()
         cv2.destroyAllWindows()
     except GetOutOfLoop :

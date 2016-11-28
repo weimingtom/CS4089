@@ -16,6 +16,8 @@
 		<link rel="stylesheet" type="text/css" href="css/theme/white.css">
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" type="text/css" href="lib/css/zenburn.css">
+		<!-- BootStrap core CSS -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	</head>
 	<body>
 		<div class="reveal">
@@ -24,110 +26,78 @@
 					<h2>Security Implementation using Biometric</h2>
 				</section>
 				<section>
-					<h2>Why is this project required? </h2>
+					<h2>How Face Recognition using OpenCV works? </h2>
 					<ul>
-						<li>people tend to forget their passwords</li>
-						<li>cannot be stolen or taken from them</li>
-						<li>get the system ready faster</li>
+
 					</ul>
 				</section>
 				<section>
-					<h2>Problem Definition</h2>
-					<p style="text-align:justify;">
-						Design a security system for GNU/Linux operating system
-						using biometric of the user that would replace the traditional
-						password input using a keyboard.
-					</p>
+					<h2> The EigenVector of the following image </h2>
+					<div class="col-sm-6">
+						<img src="img/shrimadhav_0.png" />
+					</div>
+					<div class="col-sm-6">
+						<pre><code>
+[[[ 87  87  87]
+  [ 86  86  86]
+  [ 91  91  91]
+  ...,
+  [ 34  34  34]
+  [ 28  28  28]
+  [ 27  27  27]]
+
+ [[ 92  92  92]
+  [ 89  89  89]
+  [ 92  92  92]
+  ...,
+  [ 30  30  30]
+  [ 27  27  27]
+  [ 28  28  28]]
+
+ [[ 93  93  93]
+  [ 93  93  93]
+  [ 93  93  93]
+  ...,
+  [ 29  29  29]
+  [ 27  27  27]
+  [ 28  28  28]]
+
+ ...,
+ [[114 114 114]
+  [112 112 112]
+  [109 109 109]
+  ...,
+  [ 85  85  85]
+  [ 83  83  83]
+  [ 84  84  84]]
+
+ [[113 113 113]
+  [112 112 112]
+  [106 106 106]
+  ...,
+  [ 88  88  88]
+  [ 84  84  84]
+  [ 85  85  85]]
+
+ [[113 113 113]
+  [112 112 112]
+  [114 114 114]
+  ...,
+  [ 91  91  91]
+  [ 81  81  81]
+  [ 81  81  81]]]
+
+						</code></pre>
+					</div>
 				</section>
 				<section>
-					<h2>What is this project about? </h2>
-					<ul>
-						<li>develop an application that attempts to
-							<ol>
-								<li>replace the traditional keyboard login screen</li>
-								<li>implement a biometric based login system</li>
-							</ol>
-						</li>
-					</ul>
+
 				</section>
 				<section>
-					<section>
-						<h2>Work Plan </h2>
-					</section>
-					<section>
-						<h2>Work completed so far </h2>
-						<ul>
-							<li>Developed the application which takes the voice input through the microphone.</li>
-						<ul>
-					</section>
-					<section>
-						<h2>Remaining Work Plan </h2>
-						<ol>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Save the training set of the user's voice
-								</span>
-								<span style="text-align: right;font-weight: bold;">
-									Expected Deadline: 03.10.2016
-								</span>
-							</li>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Develop an application which tests the user's voice to return <b>Authorized</b> or <b>Not Authorized</b>
-								</span>
-							</li>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Modify the application for multiple users
-								</span>
-								<span style="text-align: right;font-weight: bold;">
-									Expected Deadline: 17.10.2016
-								</span>
-							</li>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Similarly, repeat the steps for the Face Recognition
-								</span>
-								<span style="text-align: right;font-weight: bold;">
-									Expected Deadline: 24.10.2016
-								</span>
-							</li>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Integrate both the above applications
-								</span>
-								<span style="text-align: right;font-weight: bold;">
-									Expected Deadline: 27.10.2016
-								</span>
-							</li>
-						</ol>
-					</section>
-					<section>
-						<!-- <h2>Remaining Work Plan </h2> -->
-						<ol>
-							<li>
-								<span style="text-align: left;">
-									Develop an application which takes the name of the user as input through the microphone, and after that takes an image using camera, and appropriately return <b>Authorized</b> or <b>Not Authorized</b>
-								</span>
-							</li>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Implement the custom application as the new login screen in your GNU/Linux system
-								</span>
-								<span style="text-align: right;font-weight: bold;">
-									Expected Deadline: 02.11.2016
-								</span>
-							</li>
-							<li class="fragment">
-								<span style="text-align: left;">
-									Discover the ways to improve the application, and document the challenges faced during the implementation phase
-								</span>
-							</li>
-						</ol>
-					</section>
+
 				</section>
 				<section>
-					<h2>Q / A </h2>
+					<h2> Thank You </h2>
 				</section>
 			</div>
 		</div>
