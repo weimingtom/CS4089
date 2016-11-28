@@ -155,12 +155,12 @@ def the_real_test(subject_directory, frontal_face, entity_name) :
     '''
     try :
         eigen_model, people = train_model(subject_directory)
-        # print(people)
+        print(people)
         # starts recording video from camera and detects & predict subjects
         sttime = time.clock()
         cap = cv2.VideoCapture(0)
         counter = 0
-        last_20 = [0 for i in range(20)]
+        last_20 = [-1 for i in range(20)]
         final_5 = []
         box_text = "Subject: "
         while(True) :
@@ -197,10 +197,16 @@ def the_real_test(subject_directory, frontal_face, entity_name) :
                             else :
                                 return False
                                 raise GetOutOfLoop
+            else :
+                # print("no face detected..")
+                last_20.append(-1)
+                last_20 = last_20[1:] # queue
+                # raise GetOutOfLoop
             cv2.imshow("Video Window", frame)
             counter += 1
             if (cv2.waitKey(5) & 0xFF == 27):
                 break
+            print(last_20)
         endtime = (time.clock() - sttime)
         cap.release()
         cv2.destroyAllWindows()
