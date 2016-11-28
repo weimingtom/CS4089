@@ -2,8 +2,11 @@
 import cv2
 import cv2.cv as cv
 import numpy
+# perform various file operations like creating and listing directories
 import os
+# take command line arguments and proper termination of program
 import sys
+# to show a particular task execution time
 import time
 
 # http://stackoverflow.com/a/189664/4723940
