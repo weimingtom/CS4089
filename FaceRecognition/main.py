@@ -15,7 +15,7 @@ class GetOutOfLoop(Exception) :
 
 def majority(mylist) :
     '''
-    Takes a list and returns an element which has highest frequency in the given list.
+      takes a list and returns an element which has highest frequency in the given list.
     '''
     myset = set(mylist)
     ans = mylist[0]
@@ -65,9 +65,9 @@ def detect_faces_in_image(input_images, output_faces) :
     i = 0
     for filename in image_files :
         image_path = input_images + os.path.sep + filename
-        print(image_path)
+        # print(image_path)
         color_img = cv2.imread(image_path)
-        print(color_img)
+        # print(color_img)
         # if(color_img is None) :
         #     continue
         # converting color image to grayscale image
@@ -206,7 +206,7 @@ def the_real_test(subject_directory, frontal_face, entity_name) :
             counter += 1
             if (cv2.waitKey(5) & 0xFF == 27):
                 break
-            print(last_20)
+            # print(last_20)
         endtime = (time.clock() - sttime)
         cap.release()
         cv2.destroyAllWindows()
