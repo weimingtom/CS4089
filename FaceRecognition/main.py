@@ -33,7 +33,7 @@ def get_positive_lst(mylist) :
       takes a list and returns the positive integers in the list
     '''
     # http://stackoverflow.com/a/23096436/4723940
-    x = numpy.array( [ num for num in mylist if num >= 0 ] )
+    x = [num for num in mylist if num >= 0]
     return x
 
 def save_object(obj, filename) :
@@ -155,9 +155,9 @@ def train_model(path) :
     [images, labels, people] = get_images(path, (256, 256))
     labels= numpy.asarray(labels, dtype= numpy.int32)
     # initializing eigen_model and training
-    print("Initializing eigen FaceRecognizer and training...")
+    print("Initializing LBPH FaceRecognizer and training...")
     sttime = time.clock()
-    eigen_model = cv2.createEigenFaceRecognizer()
+    eigen_model = cv2.createLBPHFaceRecognizer()
     eigen_model.train(images, labels)
     print("Successfully completed training in " + str(time.clock() - sttime) + " seconds!")
     return [eigen_model, people]
@@ -169,7 +169,7 @@ def detect_faces(frontal_face, image) :
     bBoxes = frontal_face.detectMultiScale(image, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags = cv.CV_HAAR_SCALE_IMAGE)
     return bBoxes
 
-def the_real_test(eigen_model, people, subject_directory, frontal_face, entity_name) :
+def the_real_test(eigen_model, people, subject_directory, frontal_face) :
     '''
       INPUT: subject_directory named according to convention
              the Eigen Face Detection dataset
@@ -184,6 +184,7 @@ def the_real_test(eigen_model, people, subject_directory, frontal_face, entity_n
         final_5 = []
         box_text = "Subject: "
         while(True) :
+            print(counter)
             ret, frame = cap.read()
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.equalizeHist(gray_frame)
@@ -204,22 +205,18 @@ def the_real_test(eigen_model, people, subject_directory, frontal_face, entity_n
                 Use max_label or predicted_label as you wish to see in the output video.
                 '''
                 if (counter % 10) == 0 :
-                    max_label = majority(last_20)
+                    max_label = majority(get_positive_lst(last_20))
                     box_text = format("Subject: " + people[max_label])
                     # timeout after a particular interval
                     if counter > 20 :
                         final_5.append(max_label)
                         # it always takes max_label into consideration
                         print("[" + str(len(final_5)) + "] Detected face is: " + people[max_label])
-                        if (predicted_conf / 100.0) > 40 and len(final_5) == 5 :
+                        if (predicted_conf / 100.0) > 80 and len(final_5) == 5 :
                         # if len(final_5) == 5 :
                             print("connection timed out...")
-                            if people[max_label] == entity_name :
-                                return True, people[max_label]
-                                raise GetOutOfLoop
-                            else :
-                                return False, people[max_label]
-                                raise GetOutOfLoop
+                            return True, people[max_label]
+                            # raise GetOutOfLoop
                         else :
                             print("No matching faces recognized!")
                             return False, people[max_label]
@@ -288,8 +285,8 @@ if __name__ == "__main__" :
         eigen_model, people = train_model(subject_directory)
         # print(eigen_model)
         print(people)
-        status_of_state, p_name = the_real_test(eigen_model, people, subject_directory, frontal_face, entity_name)
-        if status_of_state :
+        status_of_state, p_name = the_real_test(eigen_model, people, subject_directory, frontal_face)
+        if p_name == entity_name :
             print("Authorized")
         else :
             print("Not Authorized")
