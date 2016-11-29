@@ -26,6 +26,14 @@ def majority(mylist) :
             ans_f = mylist.count(i)
     return ans
 
+def get_positive_lst(mylist) :
+    '''
+      takes a list and returns the positive integers in the list
+    '''
+    # http://stackoverflow.com/a/23096436/4723940
+    x = numpy.array( [ num for num in mylist if num >= 0 ] )
+    return x
+
 def take_images_for_training(input_images, entity_name) :
     '''
       takes parameters:
@@ -65,11 +73,12 @@ def detect_faces_in_image(input_images, output_faces) :
     i = 0
     for filename in image_files :
         image_path = input_images + os.path.sep + filename
-        # print(image_path)
+        print(image_path)
         color_img = cv2.imread(image_path)
         # print(color_img)
-        # if(color_img is None) :
-        #     continue
+        # print(color_img.shape)
+        if(color_img is None) :
+            continue
         # converting color image to grayscale image
         gray_img = cv2.cvtColor(color_img, cv2.COLOR_BGR2GRAY)
 		# find the bounding boxes around detected faces in images
@@ -87,7 +96,7 @@ def detect_faces_in_image(input_images, output_faces) :
             i = i + 1
     print("Successfully completed the task in %.2f Secs." % (time.clock() - sttime))
 
-def process_cropped_images(output_faces, subject_directory) :
+def process_cropped_images(input_images, output_faces, subject_directory) :
     print("Starting to rearrange images in appropriate directories...")
     sttime = time.clock()
     image_files = os.listdir(output_faces)
@@ -103,6 +112,7 @@ def process_cropped_images(output_faces, subject_directory) :
         # moving file TODO: use Python operation instead of the hard coded value
         os.system("mv " + image_path + " " + new_path)
     print("Successfully completed the task in %.2f Secs." % (time.clock() - sttime))
+    os.system("rm -rf " + input_images + " " + output_faces)
 
 def get_images(path, size) :
     '''
@@ -147,15 +157,13 @@ def detect_faces(frontal_face, image) :
     bBoxes = frontal_face.detectMultiScale(image, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags = cv.CV_HAAR_SCALE_IMAGE)
     return bBoxes
 
-def the_real_test(subject_directory, frontal_face, entity_name) :
+def the_real_test(eigen_model, people, subject_directory, frontal_face, entity_name) :
     '''
       INPUT: subject_directory named according to convention
              the Eigen Face Detection dataset
       OUTPUT: name of the person
     '''
     try :
-        eigen_model, people = train_model(subject_directory)
-        print(people)
         # starts recording video from camera and detects & predict subjects
         sttime = time.clock()
         cap = cv2.VideoCapture(0)
@@ -174,6 +182,8 @@ def the_real_test(subject_directory, frontal_face, entity_name) :
                 crop_gray_frame = gray_frame[q:q+s, p:p+r]
                 crop_gray_frame = cv2.resize(crop_gray_frame, (256, 256))
                 [predicted_label, predicted_conf] = eigen_model.predict(numpy.asarray(crop_gray_frame))
+                # print(predicted_conf)
+                # if (predicted_conf / 100.0) > 40 and len(get_positive_lst(final_5)) == 5 :
                 last_20.append(predicted_label)
                 last_20 = last_20[1:] # queue
                 cv2.putText(frame, box_text, (p-20, q-5), cv2.FONT_HERSHEY_PLAIN, 1.3, (25,0,225), 2)
@@ -183,25 +193,30 @@ def the_real_test(subject_directory, frontal_face, entity_name) :
                 '''
                 if (counter % 10) == 0 :
                     max_label = majority(last_20)
-                    box_text= format("Subject: " + people[max_label])
+                    box_text = format("Subject: " + people[max_label])
                     # timeout after a particular interval
                     if counter > 20 :
                         final_5.append(max_label)
                         # it always takes max_label into consideration
                         print("[" + str(len(final_5)) + "] Detected face is: " + people[max_label])
-                        if len(final_5) == 5 :
+                        if (predicted_conf / 100.0) > 40 and len(final_5) == 5 :
+                        # if len(final_5) == 5 :
                             print("connection timed out...")
                             if people[max_label] == entity_name :
-                                return True
+                                return True, people[max_label]
                                 raise GetOutOfLoop
                             else :
-                                return False
+                                return False, people[max_label]
                                 raise GetOutOfLoop
-            else :
-                # print("no face detected..")
-                last_20.append(-1)
-                last_20 = last_20[1:] # queue
-                # raise GetOutOfLoop
+                        else :
+                            print("No matching faces recognized!")
+                            return False, people[max_label]
+                            # raise GetOutOfLoop
+            # else :
+            #     # print("no face detected..")
+            #     last_20.append(-1)
+            #     last_20 = last_20[1:] # queue
+            #     # raise GetOutOfLoop
             cv2.imshow("Video Window", frame)
             counter += 1
             if (cv2.waitKey(5) & 0xFF == 27):
@@ -249,9 +264,12 @@ if __name__ == "__main__" :
         # crop the faces in images
         detect_faces_in_image(input_images, output_faces)
         # rename images to appropriate directories
-        process_cropped_images(output_faces, subject_directory)
+        process_cropped_images(input_images, output_faces, subject_directory)
     elif type_of_method == "test" :
-        status_of_state = the_real_test(subject_directory, frontal_face, entity_name)
+        eigen_model, people = train_model(subject_directory)
+        # print(eigen_model)
+        print(people)
+        status_of_state, p_name = the_real_test(eigen_model, people, subject_directory, frontal_face, entity_name)
         if status_of_state :
             print("Authorized")
         else :
