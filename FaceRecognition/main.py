@@ -1,5 +1,7 @@
 
 import cv2
+# used to trained data to disk
+import pickle
 import cv2.cv as cv
 import numpy
 # perform various file operations like creating and listing directories
@@ -33,6 +35,16 @@ def get_positive_lst(mylist) :
     # http://stackoverflow.com/a/23096436/4723940
     x = numpy.array( [ num for num in mylist if num >= 0 ] )
     return x
+
+def save_object(obj, filename) :
+    # http://stackoverflow.com/a/4529901/4723940
+    with open(filename, 'wb') as output :
+        pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
+
+def get_object(filename) :
+    with open(filename, 'wb') as input :
+        obj = pickle.load(input)
+    return obj
 
 def take_images_for_training(input_images, entity_name) :
     '''
@@ -265,7 +277,14 @@ if __name__ == "__main__" :
         detect_faces_in_image(input_images, output_faces)
         # rename images to appropriate directories
         process_cropped_images(input_images, output_faces, subject_directory)
+        # train the saved dataset
+        # eigen_model, people = train_model(subject_directory)
+        # save_object(eigen_model, subject_directory + os.path.sep + "eigen_model.tdata")
+        # save_object(people, subject_directory + os.path.sep + "people.tdata")
     elif type_of_method == "test" :
+        # eigen_model = get_object(subject_directory + os.path.sep + "eigen_model.tdata")
+        # people = get_object(subject_directory + os.path.sep + "people.tdata")
+        # train the saved dataset
         eigen_model, people = train_model(subject_directory)
         # print(eigen_model)
         print(people)
