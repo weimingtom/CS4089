@@ -149,7 +149,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -348,7 +348,7 @@ the user, and accordingly allow or deny access to the system.
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
 CMUSphinx, OpenCV, Real time, biometric, Face Recognition, PCA, Eigen faces,
-Yale Face DataBase
+Yale Face DataBase, Principle Component Analysis,
 %IEEEtran, journal, \LaTeX, paper, template.
 \end{IEEEkeywords}
 
@@ -435,7 +435,85 @@ In mathematical terms, we wish to find the principal components of the distribut
 faces, or the eigenvectors of the covariance matrix of the set of face images,
 treating an image as a vector in a very high dimensional space. The eigenvectors
 are ordered, each one accounting for a different amount of the variation among the face
-images. \\ 
+images. \\
+These eigenvectors can be thought of as a set of features that together characterize
+the variation between face images. Each image location contributes more or less
+to each eigenvector, so that the eigenvector is displayed as a sort of ghostly
+face, which is called an \textit{eigenface}. \\
+The approach to face recognition using the eigenface approach involves the
+following initiation operations: \\
+\begin{enumerate}
+  \item Acquire an initial set of characterstic face images (the training set). \\
+        This set should include a number of images for each person, with some
+        variation in expression and in the lighting. \\
+        (say \textbf{4} images of \textbf{10} people, so \textbf{M = 40}.)
+  \item Calculate the eigenfaces from the training set, keeping only the M images
+        that correspond to the highest eigenvalues. \\
+        These M images define the \textit{face space}. As new faces are experienced,
+        the eigenfaces can be updated or re-calculated.
+        \begin{enumerate}
+          \item Calculate the (M x M) matrix L, find it's eigenvectors and
+                eigenvalues, and choose the M' eigenvectors with the highest
+                associated eigenvalues. \\
+                (Let M' = 10 in this example.)
+          \item Combine the normalized training set of images (according to
+                equation \ref{eq:six}) to produce the (say, M' = 10) eigenfaces $ u_{k} $. \\
+                \begin{equation} \label{eq:six}
+                  u_{l} = \sum_{k = 1}^{M} v_{lk}\Phi_{k} \hspace{10 mm}, l = 1,2,\ldots,M
+                \end{equation}
+          \item For each known individual, calculate the class vector $ \Omega_{k} $
+                by averaging the eigenface pattern vectors $ \Omega $ ( from equation \ref{eq:eight} )
+                calculated from the original images (four, in this example) of the individual. \\
+                \begin{equation} \label{eq:eight}
+                  \epsilon_{k}^{2} = || (\Omega - \Omega_{k}) ||^{2}
+                \end{equation}
+                Choose a threshold $ \theta_{\epsilon} $ that defines the maximum
+                allowable distance from any face class, and a threshold $ \theta_{\epsilon} $
+                that defines the maximum allowable distance from face space.
+                (according to equation \ref{eq:nine}) \\
+                \begin{equation} \label{eq:nine}
+                  \epsilon^{2} = || (\Phi - \Phi_{f}) ||^{2}
+                \end{equation}
+          \item For each new face image to be identified, calculate it's pattern
+                vector $ \Omega $, the distance $ \epsilon_{i} $ to each known
+                class, and the distance $ \epsilon $ to face space. \\
+                If the minimum distance $ \epsilon_{k} < \Theta_{\epsilon} $
+                and the distance $ \epsilon < \Theta_{\epsilon} $, classify the
+                input face as the individual associated with the class vector
+                $ \Omega_{k} $. \\
+                If the minimum distance $ \epsilon_{k} > \Theta_{\epsilon} $ but
+                distance $ \epsilon < \Theta_{\epsilon} $, Then the image may be
+                classified as unknown, and optionally used to begin a new face class.
+        \end{enumerate}
+  \item If the new image is classified as a known individual, this image may be added
+        to the original set of familiar face images, and the eigenfaces may be recalculated
+        (steps 1-2). This gives the opportunity to modify the face space as the
+        system encounters more instances of known faces.
+  \item Calculate the corresponding in M-dimensional weight space for each known
+        individual, by projecting the face images onto the face space.
+\end{enumerate}
+The above initialization operations can be performed from time to time whenever
+there is free excess computational capacity, available in the system. \\
+Having initialized the system, the following steps are then used to recognize
+new face images: \\
+\begin{enumerate}
+  \item Calculate a set of weights based on the input image and the M eigenfaces
+        by projecting the input image onto each of the eigenfaces.
+  \item Determine if the image is a face (whether known or unknown) by checking
+        to see if the image is sufficiently close to face space.
+  \item If it is a face, classify the weight pattern as either a known person or
+        as unknown.
+  \item Update the eigenfaces and/or weight pattern.
+  \item If the same unknown face is seen several times, calculate its characterstic
+        weight pattern and incorporate into the known faces.
+\end{enumerate}
+
+<Insert the image here >
+\\
+In the prototype implemented, calculation of the eigenfaces is done as part of the
+training process. \\
+The recognition currently takes about 30 milli seconds implemented in
+Python on an Intel Core i5, using face images of size 132 x 132.
 
 \section{Work Plan for Next Semester}
 \begin{enumerate}
