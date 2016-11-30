@@ -91,7 +91,7 @@
 
 % *** CITATION PACKAGES ***
 %
-%\usepackage{cite}
+\usepackage{cite}
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
 % \cite{} output to follow that of IEEE. Loading the cite package will
@@ -296,7 +296,10 @@
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
-\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={Security Implementation using Biometric}, pdfauthor={Shrimadhav U K _ B130253CS}, pdfsubject={CS4089_Project}, pdfkeywords={r,e,l,e,v,a,n,t,k,e,y,w,o,r,d,s}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0},
+            pdftitle={Security Implementation using Biometric},
+            pdfauthor={Shrimadhav U K _ B130253CS}, pdfsubject={CS4089_Project},
+            pdfkeywords={r,e,l,e,v,a,n,t,k,e,y,w,o,r,d,s}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
 \begin{document}
 %
 % paper title
@@ -363,7 +366,7 @@ Yale Face DataBase
 Biometric Security is gaining more and more attention recently. This project
 attempts to implement an application which can take the voice input from a
 microphone, face input from a camera, and verify the authenticity of the user
-accessing the system.
+accessing the system. \\
 
 \section{Motivation}
 Human beings have reached a stage where it is no longer convenient to type the
@@ -371,18 +374,22 @@ password when they want to be authenticated. This was the basic motivation of
 this project, i.e., to replace the password input using a keyboard, and instead
 ask the user to smile in front of their personal computer, and talk interactively
 to it. Then that personal computer unlocks, if it recognizes the integrity of
-the user.
+the user. \\
+Currently, no fool-proof solution exists which attempts to do both these tasks.
+There exists individual solutions for each of these individual tasks. But, these
+solutions are proprietary and requires specific licenses to use the offered
+services. \\
+
+\section{Problem Statement}
+To design a security system for GNU/Linux operating system using biometric
+of the user, i.e., the face and the voice of the user, that would replace the
+traditional password input using a keyboard. \\
 
 \section{Related Works}
 \begin{enumerate}
   \item Google Now \url{https://www.google.com/search/about/learn-more/now/}
   \item Microsoft Windows Hello \url{https://support.microsoft.com/en-in/help/17215/windows-10-what-is-hello}
 \end{enumerate}
-
-\section{Problem Statement}
-Design a security system for GNU/Linux operating system using biometric
-of the user that would replace the
-traditional password input using a keyboard.
 
 \section{High Level Design}
 \begin{enumerate}
@@ -395,12 +402,53 @@ traditional password input using a keyboard.
   \end{itemize}
 \end{enumerate}
 
+\section{Literature Survey}
+
+\subsection{Background and Related Work}
+Much of the work in computer recognition of faces have been approached by
+characterizing a face by a set of geometric parameters and performing pattern
+recognition based on the parameters. \\
+Kanade's \cite{Kanade1973} face identification system was the first system in which all
+steps of the recognition process were automated, using a top-down control strategy
+directed by a generic model of expected feature characterstics. His system calculated
+a set of facial parameters from a single face image and used a pattern classification
+technique to match the face from a known set. This approach was a statistical
+based approach, which depended primarily on local histogram analysis and absolute
+gray-scale values. \\
+
+\subsection{The EigenFace Approach}
+Much of the previous work on automated face recognition has ignored the issue of
+just what aspects of the face stimulus are important for identification.
+This suggested that an information theory approach of encoding and decoding
+face images may give insight into the information content of face images,
+emphasizing the significant local and global features. Such features may or may not
+be directly related to our intuitive notion of face features such as the eyes, nose,
+lips, and hair. \\
+In the language of information theory, the relevant information in a face image
+should be extracted, encode it as efficiently as possible, and compare one face
+encoding with a database of models encoded similarly. \\
+A simple approach to extracting the information contained in an image of a face
+is to somehow capture the variation in a collection of face images, independent
+of any judgment of features, and use this information to encode and compare
+individual face images. \\
+In mathematical terms, we wish to find the principal components of the distribution of
+faces, or the eigenvectors of the covariance matrix of the set of face images,
+treating an image as a vector in a very high dimensional space. The eigenvectors
+are ordered, each one accounting for a different amount of the variation among the face
+images. \\ 
+
 \section{Work Plan for Next Semester}
 \begin{enumerate}
-  \item Learn how the GNU/Linux login screen works, and possible ways to overwrite it. \textbf{Expected Deadline: 19.10.2016}
+  \item Develop an application which takes the voice input through the microphone,
+        and train the application with multiple users.
+  \item Modify the above application to test that user's voice and
+        return the status (Authorized or Not Authorized).
+  \item Learn how the GNU/Linux login screen works, and possible ways to overwrite it.
   \item Implement the custom application as the new login screen in your GNU/Linux system.
   \item Discover the ways to improve the application, and document the challenges faced during the implementation phase.
 \end{enumerate}
+
+\section{Conclusion}
 
 %\subsection{Subsection Heading Here}
 %\blindtext
@@ -539,15 +587,17 @@ traditional password input using a keyboard.
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{99}
 
-\bibitem{citation-1-name-here}Google Now,\ \url{https://www.google.com/search/about/learn-more/now/}
+\bibitem{citation-1-name-here} Google Now,\ \url{https://www.google.com/search/about/learn-more/now/}
 
-\bibitem{citation-2-name-here}Microsoft Windows Hello,\ \url{https://support.microsoft.com/en-in/help/17215/windows-10-what-is-hello}
+\bibitem{citation-2-name-here} Microsoft Windows Hello,\ \url{https://support.microsoft.com/en-in/help/17215/windows-10-what-is-hello}
 
-\bibitem{citation-3-name-here}The CMU Audio Databases,\ \url{http://www.speech.cs.cmu.edu/databases/}
+\bibitem{citation-3-name-here} The CMU Audio Databases,\ \url{http://www.speech.cs.cmu.edu/databases/}
 
-\bibitem{citation-4-name-here}UCSD Computer Vision,\ \url{http://vision.ucsd.edu/content/yale-face-database}
+\bibitem{citation-4-name-here} UCSD Computer Vision,\ \url{http://vision.ucsd.edu/content/yale-face-database}
 
-\bibitem{citation-5-name-here}Matthew Turk, Alex Pentland,\ {Eigenfaces for Recognition}
+\bibitem{citation-5-name-here} Matthew Turk, Alex Pentland,\ {Eigenfaces for Recognition}
+
+\bibitem{Kanade1973} Takeo Kanade, \ {Computer recognition of human faces}
 
 \end{thebibliography}
 
