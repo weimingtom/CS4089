@@ -110,22 +110,22 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  %\usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  %\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
-  % \usepackage[dvips]{graphicx}
+  %\usepackage[dvips]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../eps/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
+  %\DeclareGraphicsExtensions{.eps}
 \fi
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
@@ -439,7 +439,7 @@ images. \\
 These eigenvectors can be thought of as a set of features that together characterize
 the variation between face images. Each image location contributes more or less
 to each eigenvector, so that the eigenvector is displayed as a sort of ghostly
-face, which is called an \textit{eigenface}. \\
+face, which is called an $ \textit{eigenface}^{[\ref{fig:meigenface}]} $. \\
 The approach to face recognition using the eigenface approach involves the
 following initiation operations: \\
 \begin{enumerate}
@@ -508,8 +508,16 @@ new face images: \\
         weight pattern and incorporate into the known faces.
 \end{enumerate}
 
-$ <Insert the image here > $
-\\
+\begin{figure}[!t]
+\centering
+\includegraphics[width=1.5in]{./gulzar.png}
+% where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Mean Eigen Face}
+\label{fig:meigenface}
+\end{figure}
+
 In the prototype implemented using the EigenFaces approach, calculation of the
 eigenfaces is done as part of the training process. \\
 The recognition, using the EigenFaces approach, takes about 90 seconds
@@ -560,9 +568,17 @@ The LBPH recognizer takes five variables: \\
   the method returns \textbf{-1}. \\
 \end{description}
 
-$ <Insert the image here > $
-\\
-In the prototype implemented using the LBPH approach, calculation of the
+\begin{figure}[!t]
+\centering
+\includegraphics[width=1.5in]{./histogram.png}
+% where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Local Binary Pattern}
+\label{fig:lbph}
+\end{figure}
+
+In the prototype implemented using the $ LBPH Approach^{[\ref{fig:lbph}]} $, calculation of the
 LBP is done as part of the training process. \\
 The recognition, using the LBPH approach, takes about 30 milliseconds
 implemented in Python on an Intel Core i5, using face images of size 132 x 132. \\
@@ -584,7 +600,7 @@ In this project, I have tried to implement a Face Recognition based biometric
 security system. It also demonstrates the various capabilities of Image Recognition
 from video sequences. However, several aspects remain to be researched and extended.
 For instance, since face to face meeting encompasses several modalities, such as
-speech and gesture, these capabilities need to researched and implemented. \\ 
+speech and gesture, these capabilities need to researched and implemented. \\
 
 %\subsection{Subsection Heading Here}
 %\blindtext
