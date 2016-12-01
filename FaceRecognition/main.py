@@ -67,7 +67,7 @@ def take_images_for_training(input_images, entity_name) :
         if cv2.waitKey(10) & 0xFF == ord('q') :
             break
         i = i + 1
-        if i > 10 :
+        if i >= 10 :
             break
         print("sleeping for five seconds")
         time.sleep(5)
