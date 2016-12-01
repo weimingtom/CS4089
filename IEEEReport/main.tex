@@ -312,7 +312,7 @@
 \author{\IEEEauthorblockN{Shrimadhav U K}
         \IEEEauthorblockA{\\
                           Guided by: \textbf{Dr. Vinod Pathari}\\ \\
-                          November 28, 2016\\
+                          December 2, 2016\\
       }}
 
 
@@ -393,13 +393,17 @@ traditional password input using a keyboard. \\
 
 \section{High Level Design}
 \begin{enumerate}
-  \item Design a function which takes the user voice through the microphone, and the name of the user and returns True or False, accordingly.
-  \item Design a function which takes an image of the user, using the camera, and the name of the user and returns True or False, accordingly.
-  \item Finally, design a system which unifies the functions designed above. The system should be able:
-  \begin{itemize}
-    \item to override the default login screen in a GNU/Linux system.
-    \item to ensure the integrity of the confidential details created using the above functions.
-  \end{itemize}
+  \item Design a function which takes the user voice through the microphone,
+        and the name of the user and returns True or False, accordingly.
+  \item Design a function which takes an image of the user, using the camera,
+        and the name of the user and returns True or False, accordingly.
+  \item Finally, design a system which unifies the functions designed above.
+        The system should be able:
+        \begin{itemize}
+          \item to override the default login screen in a GNU/Linux system.
+          \item to ensure the integrity of the confidential details created
+                using the above functions.
+        \end{itemize}
 \end{enumerate}
 
 \section{Literature Survey}
@@ -410,7 +414,7 @@ characterizing a face by a set of geometric parameters and performing pattern
 recognition based on the parameters. \\
 Kanade's face identification system was the first system in which all
 steps of the recognition process were automated, using a top-down control strategy
-directed by a generic model of expected feature characterstics. His system calculated
+directed by a generic model of expected feature characteristics. His system calculated
 a set of facial parameters from a single face image and used a pattern classification
 technique to match the face from a known set. This approach was a statistical
 based approach, which depended primarily on local histogram analysis and absolute
@@ -439,11 +443,11 @@ images. \\
 These eigenvectors can be thought of as a set of features that together characterize
 the variation between face images. Each image location contributes more or less
 to each eigenvector, so that the eigenvector is displayed as a sort of ghostly
-face, which is called an $ \textit{eigenface}^{[\ref{fig:meigenface}]} $. \\
+face, which is called an $ eigenface^{[\ref{fig:meigenface}]} $. \\
 The approach to face recognition using the eigenface approach involves the
 following initiation operations: \\
 \begin{enumerate}
-  \item Acquire an initial set of characterstic face images (the training set). \\
+  \item Acquire an initial set of characteristic face images (the training set). \\
         This set should include a number of images for each person, with some
         variation in expression and in the lighting. \\
         (say \textbf{4} images of \textbf{10} people, so \textbf{M = 40}.)
@@ -547,7 +551,7 @@ The LBPH recognizer takes five variables: \\
 
   \item[ neighbors ]
   The number of sample points to build a Circular Local Binary Pattern from. \\
-  A value suggested by OpenCV documebtation is \textbf{8} sample points. \\
+  A value suggested by OpenCV documentation is \textbf{8} sample points. \\
   The more the number of sample points, higher will be the computational cost. \\
 
   \item[ grid\_x ]
