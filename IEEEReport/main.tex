@@ -293,7 +293,7 @@
 % There should be no need to do such things with IEEEtran.cls V1.6 and later.
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
-
+\usepackage{amssymb}
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0},
@@ -347,7 +347,7 @@ the user, and accordingly allow or deny access to the system.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-CMUSphinx, OpenCV, Real time, biometric, Face Recognition, PCA, Eigen faces,
+CMUSphinx, OpenCV, Real time, biometric, Face Recognition, PCA, eigenfaces,
 Yale Face DataBase, Principle Component Analysis,
 %IEEEtran, journal, \LaTeX, paper, template.
 \end{IEEEkeywords}
@@ -412,7 +412,7 @@ traditional password input using a keyboard. \\
 Much of the work in computer recognition of faces have been approached by
 characterizing a face by a set of geometric parameters and performing pattern
 recognition based on the parameters. \\
-Kanade's face identification system was the first system in which all
+Kanade's face identification system \cite{Kanade1973} was the first system in which all
 steps of the recognition process were automated, using a top-down control strategy
 directed by a generic model of expected feature characteristics. His system calculated
 a set of facial parameters from a single face image and used a pattern classification
@@ -443,7 +443,7 @@ images. \\
 These eigenvectors can be thought of as a set of features that together characterize
 the variation between face images. Each image location contributes more or less
 to each eigenvector, so that the eigenvector is displayed as a sort of ghostly
-face, which is called an $ eigenface^{[\ref{fig:meigenface}]} $. \\
+face, which is called an eigenface (see Figure \ref{fig:meigenface}). \\
 The approach to face recognition using the eigenface approach involves the
 following initiation operations: \\
 \begin{enumerate}
@@ -459,14 +459,14 @@ following initiation operations: \\
           \item Calculate the (M x M) matrix L, find it's eigenvectors and
                 eigenvalues, and choose the M' eigenvectors with the highest
                 associated eigenvalues. \\
-                (Let M' = 10 in this example.)
+                (Let $ M' = 10 $ in this example.)
           \item Combine the normalized training set of images (according to
-                equation \ref{eq:six}) to produce the (say, M' = 10) eigenfaces $ u_{k} $. \\
+                equation (\ref{eq:six})) to produce the (say, $ M' = 10 $) eigenfaces $ u_{k} $. \\
                 \begin{equation} \label{eq:six}
                   u_{l} = \sum_{k = 1}^{M} v_{lk}\Phi_{k} \hspace{10 mm}, l = 1,2,\ldots,M
                 \end{equation}
           \item For each known individual, calculate the class vector $ \Omega_{k} $
-                by averaging the eigenface pattern vectors $ \Omega $ ( from equation \ref{eq:eight} )
+                by averaging the eigenface pattern vectors $ \Omega $ (from equation (\ref{eq:eight}))
                 calculated from the original images (four, in this example) of the individual. \\
                 \begin{equation} \label{eq:eight}
                   \epsilon_{k}^{2} = || (\Omega - \Omega_{k}) ||^{2}
@@ -474,7 +474,7 @@ following initiation operations: \\
                 Choose a threshold $ \theta_{\epsilon} $ that defines the maximum
                 allowable distance from any face class, and a threshold $ \theta_{\epsilon} $
                 that defines the maximum allowable distance from face space.
-                (according to equation \ref{eq:nine}) \\
+                (according to equation (\ref{eq:nine})) \\
                 \begin{equation} \label{eq:nine}
                   \epsilon^{2} = || (\Phi - \Phi_{f}) ||^{2}
                 \end{equation}
@@ -522,9 +522,9 @@ new face images: \\
 \label{fig:meigenface}
 \end{figure}
 
-In the prototype implemented using the EigenFaces approach, calculation of the
+In the prototype implemented using the eigenfaces approach, calculation of the
 eigenfaces is done as part of the training process. \\
-The recognition, using the EigenFaces approach, takes about 90 seconds
+The recognition, using the eigenfaces approach, takes about 90 seconds
 implemented in Python on an Intel Core i5, using face images of size 132 x 132. \\
 
 \subsection{The Local Binary Pattern Histogram Approach}
@@ -546,30 +546,30 @@ using a Support Vector Machine or some other machine learning algorithm. \\
 \subsection{The Local Binary Pattern Histogram Classifier}
 The LBPH recognizer takes five variables: \\
 \begin{description}
-  \item[ radius ]
-  The radius used for building the Circular Local Binary Pattern. \\
+  \item[\textbf{radius}] \quad
+  The radius used for building the Circular Local Binary Pattern.
 
-  \item[ neighbors ]
-  The number of sample points to build a Circular Local Binary Pattern from. \\
-  A value suggested by OpenCV documentation is \textbf{8} sample points. \\
-  The more the number of sample points, higher will be the computational cost. \\
+  \item[\textbf{neighbors}] \quad
+  The number of sample points to build a Circular Local Binary Pattern from.
+  A value suggested by OpenCV documentation is eight sample points.
+  The more the number of sample points, higher will be the computational cost.
 
-  \item[ grid\_x ]
-  The number of cells in the horizontal direction, \\
-  \textbf{8} is a common value used in publications. \\
+  \item[\textbf{grid\_x}] \quad
+  The number of cells in the horizontal direction.
+  Eight is a common value used in publications.
   The more cells, the finer the grid, the higher the dimensionality of the
-  resulting feature vector. \\
+  resulting feature vector.
 
-  \item[ grid\_y ]
-  The number of cells in the vertical direction, \\
-  \textbf{8} is a common value used in publications. \\
+  \item[\textbf{grid\_y}] \quad
+  The number of cells in the vertical direction.
+  Eight is a common value used in publications.
   The more cells, the finer the grid, the higher the dimensionality of the
-  resulting feature vector. \\
+  resulting feature vector.
 
-  \item[ threshold ]
-  The threshold applied in the prediction. \\
+  \item[\textbf{threshold}] \quad
+  The threshold applied in the prediction.
   If the distance to the nearest neighbor is larger than the threshold,
-  the method returns \textbf{-1}. \\
+  the method returns \textbf{-1}.
 \end{description}
 
 \begin{figure}[!t]
@@ -582,7 +582,7 @@ The LBPH recognizer takes five variables: \\
 \label{fig:lbph}
 \end{figure}
 
-In the prototype implemented using the $ LBPH Approach^{[\ref{fig:lbph}]} $, calculation of the
+In the prototype implemented using the LBPH Approach (see Figure (\ref{fig:lbph})), calculation of the
 LBP is done as part of the training process. \\
 The recognition, using the LBPH approach, takes about 30 milliseconds
 implemented in Python on an Intel Core i5, using face images of size 132 x 132. \\
@@ -594,14 +594,14 @@ implemented in Python on an Intel Core i5, using face images of size 132 x 132. 
   \item Modify the above application to test that user's voice and
         return the status (Authorized or Not Authorized).
   \item Learn how the GNU/Linux login screen works, and possible ways to overwrite it.
-  \item Implement the custom application as the new login screen in your GNU/Linux system.
+  \item Implement the custom application as the new login screen in GNU/Linux system.
   \item Discover the ways to improve the application, and document the challenges
         faced during the implementation phase.
 \end{enumerate}
 
 \section{Conclusion}
-In this project, I have tried to implement a Face Recognition based biometric
-security system. It also demonstrates the various capabilities of Image Recognition
+In this project, I have tried to implement a face recognition based biometric
+security system. It also demonstrates the various capabilities of image recognition
 from video sequences. However, several aspects remain to be researched and extended.
 For instance, since face to face meeting encompasses several modalities, such as
 speech and gesture, these capabilities need to researched and implemented. \\
