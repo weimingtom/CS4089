@@ -408,7 +408,7 @@ traditional password input using a keyboard. \\
 Much of the work in computer recognition of faces have been approached by
 characterizing a face by a set of geometric parameters and performing pattern
 recognition based on the parameters. \\
-Kanade's \cite{Kanade1973} face identification system was the first system in which all
+Kanade's face identification system was the first system in which all
 steps of the recognition process were automated, using a top-down control strategy
 directed by a generic model of expected feature characterstics. His system calculated
 a set of facial parameters from a single face image and used a pattern classification
@@ -504,16 +504,68 @@ new face images: \\
   \item If it is a face, classify the weight pattern as either a known person or
         as unknown.
   \item Update the eigenfaces and/or weight pattern.
-  \item If the same unknown face is seen several times, calculate its characterstic
+  \item If the same unknown face is seen several times, calculate its characteristic
         weight pattern and incorporate into the known faces.
 \end{enumerate}
 
-<Insert the image here >
+$ <Insert the image here > $
 \\
-In the prototype implemented, calculation of the eigenfaces is done as part of the
-training process. \\
-The recognition currently takes about 30 milli seconds implemented in
-Python on an Intel Core i5, using face images of size 132 x 132.
+In the prototype implemented using the EigenFaces approach, calculation of the
+eigenfaces is done as part of the training process. \\
+The recognition, using the EigenFaces approach, takes about 90 seconds
+implemented in Python on an Intel Core i5, using face images of size 132 x 132. \\
+
+\subsection{The Local Binary Pattern Histogram Approach}
+It is observed that if the above program is run without any alterations,
+trained with a specific person, and another untrained face is introduced,
+then it will be recognized as the trained person. \\
+The methods to improve the accuracy of the Face Recognizer have been made more
+stringent. The threshold used to control unknown faces, in the case of the
+EigenFaceRecognizer, from the calculated distance can be adjusted to allow better
+accuracy. A default of 2000 is used but by increasing this to 5000, for example,
+will mean it will be less likely to allow a false match. \\
+
+\subsection{Principle Component Analysis}
+The EigenFaceRecognizer class applies PCA on each image, the results of which will
+be an array of Eigen values that a neural network can be trained to recognize. \\
+The LBPHFaceRecognizer uses Local Binary Patterns (LBP) to create a feature vector
+using a Support Vector Machine or some other machine learning algorithm. \\
+
+\subsection{The Local Binary Pattern Histogram Classifier}
+The LBPH recognizer takes five variables: \\
+\begin{description}
+  \item[ radius ]
+  The radius used for building the Circular Local Binary Pattern. \\
+
+  \item[ neighbors ]
+  The number of sample points to build a Circular Local Binary Pattern from. \\
+  A value suggested by OpenCV documebtation is \textbf{8} sample points. \\
+  The more the number of sample points, higher will be the computational cost. \\
+
+  \item[ grid\_x ]
+  The number of cells in the horizontal direction, \\
+  \textbf{8} is a common value used in publications. \\
+  The more cells, the finer the grid, the higher the dimensionality of the
+  resulting feature vector. \\
+
+  \item[ grid\_y ]
+  The number of cells in the vertical direction, \\
+  \textbf{8} is a common value used in publications. \\
+  The more cells, the finer the grid, the higher the dimensionality of the
+  resulting feature vector. \\
+
+  \item[ threshold ]
+  The threshold applied in the prediction. \\
+  If the distance to the nearest neighbor is larger than the threshold,
+  the method returns \textbf{-1}. \\
+\end{description}
+
+$ <Insert the image here > $
+\\
+In the prototype implemented using the LBPH approach, calculation of the
+LBP is done as part of the training process. \\
+The recognition, using the LBPH approach, takes about 30 milliseconds
+implemented in Python on an Intel Core i5, using face images of size 132 x 132. \\
 
 \section{Work Plan for Next Semester}
 \begin{enumerate}
@@ -523,10 +575,16 @@ Python on an Intel Core i5, using face images of size 132 x 132.
         return the status (Authorized or Not Authorized).
   \item Learn how the GNU/Linux login screen works, and possible ways to overwrite it.
   \item Implement the custom application as the new login screen in your GNU/Linux system.
-  \item Discover the ways to improve the application, and document the challenges faced during the implementation phase.
+  \item Discover the ways to improve the application, and document the challenges
+        faced during the implementation phase.
 \end{enumerate}
 
 \section{Conclusion}
+In this project, I have tried to implement a Face Recognition based biometric
+security system. It also demonstrates the various capabilities of Image Recognition
+from video sequences. However, several aspects remain to be researched and extended.
+For instance, since face to face meeting encompasses several modalities, such as
+speech and gesture, these capabilities need to researched and implemented. \\ 
 
 %\subsection{Subsection Heading Here}
 %\blindtext
@@ -665,17 +723,19 @@ Python on an Intel Core i5, using face images of size 132 x 132.
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{99}
 
-\bibitem{citation-1-name-here} Google Now,\ \url{https://www.google.com/search/about/learn-more/now/}
+\bibitem{GNow} Google Now,\ \url{https://www.google.com/search/about/learn-more/now/}
 
-\bibitem{citation-2-name-here} Microsoft Windows Hello,\ \url{https://support.microsoft.com/en-in/help/17215/windows-10-what-is-hello}
+\bibitem{MSWinHello} Microsoft Windows Hello,\ \url{https://support.microsoft.com/en-in/help/17215/windows-10-what-is-hello}
 
-\bibitem{citation-3-name-here} The CMU Audio Databases,\ \url{http://www.speech.cs.cmu.edu/databases/}
+\bibitem{CMUAD} The CMU Audio Databases,\ \url{http://www.speech.cs.cmu.edu/databases/}
 
-\bibitem{citation-4-name-here} UCSD Computer Vision,\ \url{http://vision.ucsd.edu/content/yale-face-database}
+\bibitem{UCSDCV} UCSD Computer Vision,\ \url{http://vision.ucsd.edu/content/yale-face-database}
 
-\bibitem{citation-5-name-here} Matthew Turk, Alex Pentland,\ {Eigenfaces for Recognition}
+\bibitem{MTurkAPentland} Matthew Turk, Alex Pentland,\ {Eigenfaces for Recognition}
 
 \bibitem{Kanade1973} Takeo Kanade, \ {Computer recognition of human faces}
+
+\bibitem{AReddyPSSReddy} Arun Reddy Pothireddy, Spandana Sunkireddy, \ {A Survey on Usage of Multiple Facial Recognition for Industrial Security}
 
 \end{thebibliography}
 
