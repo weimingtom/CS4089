@@ -1,5 +1,7 @@
 import pyaudio
 import wave
+import os
+import sys
 
 def get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, WAVE_OUTPUT_FILENAME) :
     audio = pyaudio.PyAudio()
@@ -8,14 +10,13 @@ def get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, WAVE_OUTPUT_F
                     channels=CHANNELS,
                     rate=RATE,
                     input=True,
-                    frames_per_buffer=CHUNK
-            )
-    # print "recording..."
+                    frames_per_buffer=CHUNK)
+    print("start recording")
     frames = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
         data = stream.read(CHUNK)
         frames.append(data)
-    # print "finished recording"
+    print("stop recording")
     # stop Recording
     stream.stop_stream()
     stream.close()
@@ -31,9 +32,19 @@ def get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, WAVE_OUTPUT_F
 if __name__ == "__main__" :
     # print("Hello World")
     FORMAT = pyaudio.paInt16
-    CHANNELS = 2
+    CHANNELS = 1
     RATE = 44100
     CHUNK = 1024
     RECORD_SECONDS = 5
-    WAVE_OUTPUT_FILENAME = "file.wav"
-    get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, WAVE_OUTPUT_FILENAME)
+    TRAINING_DIR = "srecogout"
+    username = str(sys.argv[1])
+    requiredDir = TRAINING_DIR + os.path.sep + username
+    value = os.path.isdir(requiredDir)
+    if not value :
+        os.makedirs(requiredDir)
+    os.chdir(requiredDir)
+    for i in range(0, 10) :
+        j = str(i).zfill(2)
+        print(j)
+        get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, "FILE" + j + ".wav")
+    os.chdir("../..")
