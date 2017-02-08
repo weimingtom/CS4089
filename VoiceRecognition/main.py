@@ -37,8 +37,18 @@ def save_training_data(requiredDir) :
         get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, "FILE" + j + ".wav")
     os.chdir("../..")
 
-def save_training_model(requiredDir, username) :
-    os.system("./speaker-recognition.py --t enroll -i \"" + requiredDir + "\" -m " + requiredDir + "/../" +username + ".model")
+def get_sub_directories(GivenDIR) :
+    a = os.listdir(GivenDIR)
+    b = ""
+    for i in a :
+        current_iterator = GivenDIR + os.path.sep + i + os.path.sep
+        if os.path.isdir(current_iterator) :
+            b = b + current_iterator + " "
+    return b
+
+def save_training_model(GDir, username) :
+    requiredDir = get_sub_directories(GDir)
+    os.system("./speaker-recognition.py -t enroll -i \"" + requiredDir + "\" -m " + GDir + os.path.sep + TRAINING_DIR + ".model")
 
 def usage_instructions() :
     print("python main.py " + "<name of individual> " + "<test/train>")
@@ -48,7 +58,7 @@ def predict_trained_model(TRAINING_DIR, username) :
     os.chdir(TRAINING_DIR)
     get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, "PREDICT.wav")
     os.chdir("..")
-    os.system("./speaker-recognition.py --t predict -i \"" + TRAINING_DIR + os.path.sep + "PREDICT.wav" + "\" -m " + TRAINING_DIR + os.path.sep + username + ".model")
+    os.system("./speaker-recognition.py --t predict -i \"" + TRAINING_DIR + os.path.sep + "PREDICT.wav" + "\" -m " + TRAINING_DIR + os.path.sep + TRAINING_DIR + ".model")
     os.system("rm " + TRAINING_DIR + os.path.sep + "PREDICT.wav")
 
 if __name__ == "__main__" :
@@ -72,7 +82,7 @@ if __name__ == "__main__" :
     # simple condition check
     if type_of_method == "train" :
         save_training_data(requiredDir)
-        save_training_model(requiredDir, username)
+        save_training_model(TRAINING_DIR, username)
     elif type_of_method == "test" :
         predict_trained_model(TRAINING_DIR, username)
     else :
