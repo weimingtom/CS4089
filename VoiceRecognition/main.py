@@ -51,10 +51,10 @@ def save_training_model(GDir, username) :
     os.system("./speaker-recognition.py -t enroll -i \"" + requiredDir + "\" -m " + GDir + os.path.sep + TRAINING_DIR + ".model")
 
 def usage_instructions() :
-    print("python main.py " + "<name of individual> " + "<test/train>")
+    print("python main.py " + "<test/train> " + "[<name of individual>]")
     sys.exit(1)
 
-def predict_trained_model(TRAINING_DIR, username) :
+def predict_trained_model(TRAINING_DIR) :
     os.chdir(TRAINING_DIR)
     get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, "PREDICT.wav")
     os.chdir("..")
@@ -69,21 +69,21 @@ if __name__ == "__main__" :
     CHUNK = 1024
     RECORD_SECONDS = 5
     ## Audio Record Globals <-- END
-    if len(sys.argv) != 3 :
+    if len(sys.argv) < 2 :
         usage_instructions()
     TRAINING_DIR = "srecogout"
-    username = str(sys.argv[1])
     # take command line arguments
-    type_of_method = str(sys.argv[2])
-    requiredDir = TRAINING_DIR + os.path.sep + username
-    value = os.path.isdir(requiredDir)
-    if not value :
-        os.makedirs(requiredDir)
+    type_of_method = str(sys.argv[1])
     # simple condition check
     if type_of_method == "train" :
+        username = str(sys.argv[2])
+        requiredDir = TRAINING_DIR + os.path.sep + username
+        value = os.path.isdir(requiredDir)
+        if not value :
+            os.makedirs(requiredDir)
         save_training_data(requiredDir)
         save_training_model(TRAINING_DIR, username)
     elif type_of_method == "test" :
-        predict_trained_model(TRAINING_DIR, username)
+        predict_trained_model(TRAINING_DIR)
     else :
         usage_instructions()
