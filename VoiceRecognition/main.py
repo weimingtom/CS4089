@@ -46,7 +46,7 @@ def get_sub_directories(GivenDIR) :
             b = b + current_iterator + " "
     return b
 
-def save_training_model(GDir, username) :
+def save_training_model(GDir) :
     requiredDir = get_sub_directories(GDir)
     os.system("./speaker-recognition.py -t enroll -i \"" + requiredDir + "\" -m " + GDir + os.path.sep + TRAINING_DIR + ".model")
 
@@ -82,8 +82,17 @@ if __name__ == "__main__" :
         if not value :
             os.makedirs(requiredDir)
         save_training_data(requiredDir)
-        save_training_model(TRAINING_DIR, username)
+        save_training_model(TRAINING_DIR)
     elif type_of_method == "test" :
         predict_trained_model(TRAINING_DIR)
+    elif type_of_method == "genTrainModel" :
+        save_training_model(TRAINING_DIR)
+    elif type_of_method == "recordAudio" :
+        username = str(sys.argv[2])
+        requiredDir = TRAINING_DIR + os.path.sep + username
+        value = os.path.isdir(requiredDir)
+        if not value :
+            os.makedirs(requiredDir)
+        save_training_data(requiredDir)
     else :
         usage_instructions()
