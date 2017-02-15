@@ -34,7 +34,9 @@ def save_training_data(requiredDir) :
     for i in range(0, 10) :
         j = str(i).zfill(2)
         print(j)
+        print("The quick brown fox jumps over the lazy dog")
         get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, "FILE" + j + ".wav")
+        print("The quick brown fox jumps over the lazy dog")
     os.chdir("../..")
 
 def get_sub_directories(GivenDIR) :
@@ -87,7 +89,7 @@ if __name__ == "__main__" :
         predict_trained_model(TRAINING_DIR)
     elif type_of_method == "genTrainModel" :
         save_training_model(TRAINING_DIR)
-    elif type_of_method == "recordAudio" :
+    elif type_of_method == "record" :
         username = str(sys.argv[2])
         requiredDir = TRAINING_DIR + os.path.sep + username
         value = os.path.isdir(requiredDir)
