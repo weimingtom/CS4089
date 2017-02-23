@@ -1,9 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: plot.py
-# $Date: Wed Dec 04 13:16:27 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
-
 
 from sample import Sample
 from scipy.io import wavfile
@@ -116,4 +112,3 @@ if __name__ == '__main__':
 
 
 # vim: foldmethod=marker
-

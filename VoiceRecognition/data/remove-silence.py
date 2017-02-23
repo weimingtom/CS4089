@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: VAD.py
-# $Date: Thu Dec 26 15:33:37 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
 import os
@@ -87,4 +84,3 @@ if __name__ == '__main__':
     main()
 
 # vim: foldmethod=marker
-

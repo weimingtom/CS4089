@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: VAD.py
-# $Date: Thu Dec 26 13:39:12 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 # Voice Activity Detectionreturn fs, new_signal
 
@@ -250,4 +247,3 @@ class VAD(object):
         return fs, signal # np.array(new_signal)
 
 # vim: foldmethod=marker
-

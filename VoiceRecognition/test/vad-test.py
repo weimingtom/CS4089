@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: vad-test.py
-# $Date: Sun Nov 24 21:35:13 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from sample import Sample
 from collections import defaultdict

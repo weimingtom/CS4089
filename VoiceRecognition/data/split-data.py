@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: split-data.py
-# $Date: Sun Dec 01 20:30:20 2013 +0000
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
 import os
@@ -107,4 +104,3 @@ if __name__ == '__main__':
     main()
 
 # vim: foldmethod=marker
-

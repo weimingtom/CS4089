@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: test-gmm.py
-# $Date: Mon Dec 16 00:40:20 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import glob
 import traceback
@@ -222,4 +219,3 @@ if __name__ == '__main__':
 
 
 # vim: foldmethod=marker
-

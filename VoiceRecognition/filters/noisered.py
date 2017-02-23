@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: noisered.py
-# Date: Fri Dec 27 04:23:28 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import sys
 from scipy.io import wavfile

@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: utils.py
-# Date: Wed Dec 25 20:24:38 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import numpy
 
@@ -29,4 +26,3 @@ def diff_feature(feat, nd=1):
     elif nd == 2:
         d2 = diff[1:] - diff[:-1]
         return numpy.concatenate((feat[1:], diff[1:], d2), axis=1)
-

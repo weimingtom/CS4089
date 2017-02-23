@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: gen-features-file.py
-# Date: Wed Dec 25 23:53:05 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import glob
 import traceback
@@ -143,4 +140,3 @@ if __name__ == "__main__":
 
     dataset.compute_features()
     dataset.write('feature-data')
-

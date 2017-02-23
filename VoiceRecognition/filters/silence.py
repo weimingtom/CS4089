@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: silence.py
-# $Date: Tue Jun 10 15:18:40 2014 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import sys
 import scipy.io.wavfile as wavfile
@@ -62,4 +59,3 @@ if __name__ == '__main__':
     main()
 
 # vim: foldmethod=marker
-

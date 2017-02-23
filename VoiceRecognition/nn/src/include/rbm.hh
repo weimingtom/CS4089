@@ -1,7 +1,5 @@
 /*
  * $File: rbm.hh
- * $Date: Thu Nov 07 12:30:21 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -100,4 +98,3 @@ class RBM {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

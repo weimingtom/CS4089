@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: gmm.py
-# $Date: Tue Dec 10 11:36:41 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from sklearn.mixture import GMM
 

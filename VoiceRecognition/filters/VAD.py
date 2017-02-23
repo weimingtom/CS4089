@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: VAD.py
-# Date: Tue Jun 10 15:17:26 2014 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 from noisered import NoiseReduction
 from silence import remove_silence
@@ -44,4 +41,3 @@ if __name__ == "__main__":
     fs, sig = wavfile.read(sys.argv[2])
     vaded, intervals = vad.filter(fs, sig)
     wavfile.write('vaded.wav', fs, vaded)
-

@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: sigfilter.py
-# $Date: Sat Nov 30 17:57:47 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 """
 Filter signals
@@ -56,4 +53,3 @@ def get_speaking_filter(frame_duration = 0.02, frame_shift = 0.01, perc = 0.05):
 
 
 # vim: foldmethod=marker
-

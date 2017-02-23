@@ -1,7 +1,5 @@
 /*
  * $File: dbn.hh
- * $Date: Tue Oct 22 19:45:32 2013 +0800
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -22,4 +20,3 @@ class DBN {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

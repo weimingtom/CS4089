@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: plot-gmm.py
-# $Date: Tue Dec 10 16:14:53 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
@@ -109,4 +106,3 @@ if __name__ == '__main__':
 
 
 # vim: foldmethod=marker
-

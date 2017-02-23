@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: test.py
-# $Date: Mon Dec 16 04:27:02 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import pygmm
 from sklearn.mixture import GMM as SKGMM
@@ -66,4 +63,3 @@ def test():
 test()
 
 # vim: foldmethod=marker
-

@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: config.py
-# $Date: Thu Dec 26 13:09:07 2013 +0000
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 frame_duration = 0.032
 frame_shift = 0.016

@@ -1,9 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: gui.py
-# Date: Sat Feb 21 18:44:12 2015 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
-
 
 import sys
 import shutil

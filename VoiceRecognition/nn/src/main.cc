@@ -1,7 +1,5 @@
 /*
  * $File: main.cc
- * $Date: Sat Dec 07 15:42:24 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 
@@ -566,4 +564,3 @@ int main(int argc, char *argv[]) {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

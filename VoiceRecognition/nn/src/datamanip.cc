@@ -1,7 +1,5 @@
 /*
  * $File: datamanip.cc
- * $Date: Thu Dec 05 00:08:18 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "datamanip.hh"
@@ -191,4 +189,3 @@ void get_data_metric(const std::vector<std::vector<real_t> >&x, int &n, int &m) 
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

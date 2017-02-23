@@ -1,9 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: extract-mfcc-data.py
-# $Date: Tue Dec 24 20:23:39 2013 +0000
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
-
 
 from sample import Sample
 from scipy.io import wavfile
@@ -57,4 +53,3 @@ if __name__ == '__main__':
 
 
 # vim: foldmethod=marker
-

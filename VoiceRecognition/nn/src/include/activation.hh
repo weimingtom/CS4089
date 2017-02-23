@@ -1,7 +1,5 @@
 /*
  * $File: activation.hh
- * $Date: Thu Oct 17 11:02:51 2013 +0800
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -59,4 +57,3 @@ class ActivationLogistic : public ActivationFunction
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

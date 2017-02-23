@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: UBM.py
-# Date: Sun Dec 08 00:47:00 2013 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import os
 import numpy

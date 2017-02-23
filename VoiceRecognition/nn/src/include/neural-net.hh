@@ -1,7 +1,5 @@
 /*
  * $File: neural-net.hh
- * $Date: Fri Nov 22 18:03:55 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -358,4 +356,3 @@ class NeuralNet {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

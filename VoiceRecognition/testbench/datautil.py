@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: datautil.py
-# $Date: Wed Dec 25 01:10:24 2013 +0000
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import os
 import glob

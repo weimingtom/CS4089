@@ -1,7 +1,5 @@
 /*
  * $File: dataset.hh
- * $Date: Sun Sep 08 08:47:09 2013 +0800
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -22,4 +20,3 @@ typedef std::vector<real_t>						Vector;
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

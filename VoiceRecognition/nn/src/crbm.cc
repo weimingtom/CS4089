@@ -1,7 +1,5 @@
 /*
  * $File: crbm.cc
- * $Date: Sat Dec 07 14:26:10 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "crbm.hh"
@@ -554,4 +552,3 @@ void CRBMTrainer::sample_visible_layer(std::vector<real_t> &v,
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

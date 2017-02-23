@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: adapt-ubm.py
-# $Date: Thu Dec 26 14:44:08 2013 +0000
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import os
 import glob

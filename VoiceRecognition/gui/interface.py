@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: interface.py
-# Date: Sun Feb 22 20:42:23 2015 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
 import os

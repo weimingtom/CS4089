@@ -1,7 +1,5 @@
 /*
  * $File: rbm.cc
- * $Date: Thu Dec 05 00:08:30 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "rbm.hh"
@@ -285,4 +283,3 @@ void RBM::load(const char *fname) {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

@@ -1,7 +1,5 @@
 /*
  * $File: datamanip.hh
- * $Date: Thu Dec 05 00:08:15 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -56,4 +54,3 @@ void bootstrap_samples(const Dataset_t &dataset, const Labels_t &labels,
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

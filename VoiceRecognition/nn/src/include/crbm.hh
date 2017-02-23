@@ -1,7 +1,5 @@
 /*
  * $File: crbm.hh
- * $Date: Sat Dec 07 13:44:24 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -123,4 +121,3 @@ class CRBMTrainer {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: pygmm.py
-# $Date: Fri Dec 27 11:51:08 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 from ctypes import *
 import os

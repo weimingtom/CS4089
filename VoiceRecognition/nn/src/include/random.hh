@@ -1,7 +1,5 @@
 /*
  * $File: random.hh
- * $Date: Fri Dec 06 14:29:49 2013 +0800
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #pragma once
@@ -58,4 +56,3 @@ class Random {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

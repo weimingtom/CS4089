@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: test-reject.py
-# $Date: Fri Dec 27 03:24:35 2013 +0000
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import datautil
 from gmmset import GMM
@@ -79,4 +76,3 @@ gmm.fit(X, ubm=ubm)
 gmm.dump('xinyu.model')
 
 # vim: foldmethod=marker
-

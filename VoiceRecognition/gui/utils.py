@@ -1,9 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: utils.py
-# Date: Sat Feb 21 18:43:32 2015 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
-
 
 from scipy.io import wavfile
 

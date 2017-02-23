@@ -1,7 +1,5 @@
 /*
  * $File: neural-net.cc
- * $Date: Sun Nov 17 12:51:11 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "neural-net.hh"

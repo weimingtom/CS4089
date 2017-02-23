@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: plot-wav.py
-# $Date: Mon Dec 30 22:03:40 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import matplotlib.pyplot as plt
 from scipy.io import wavfile

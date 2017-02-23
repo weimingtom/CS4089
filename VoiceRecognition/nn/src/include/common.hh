@@ -1,7 +1,5 @@
 /*
  * $File: common.hh
- * $Date: Sun Sep 08 08:35:24 2013 +0800
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "type.hh"
@@ -26,4 +24,3 @@
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

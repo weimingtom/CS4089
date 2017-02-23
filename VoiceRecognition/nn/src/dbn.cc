@@ -1,7 +1,5 @@
 /*
  * $File: dbn.cc
- * $Date: Sun Nov 17 12:57:20 2013 +0000
- * $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
  */
 
 #include "dbn.hh"
@@ -31,4 +29,3 @@ void DBN::fit_last_layer(std::vector<std::vector<real_t>> &X) {
 /**
  * vim: syntax=cpp11 foldmethod=marker
  */
-

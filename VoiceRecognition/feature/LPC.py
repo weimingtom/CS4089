@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: LPC.py
-# Date: Thu Mar 19 19:37:11 2015 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import time
 #import scikits.talkbox as tb

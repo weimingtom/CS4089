@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: gmmset.py
-# $Date: Sun Feb 22 20:17:14 2015 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import operator
 import multiprocessing

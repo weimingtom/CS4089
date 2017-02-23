@@ -1,11 +1,5 @@
-
-
-
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: __init__.py
-# Date: Sat Nov 29 21:42:15 2014 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import sys
 try:

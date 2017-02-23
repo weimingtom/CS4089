@@ -1,8 +1,5 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
-# $File: sample.py
-# $Date: Sat Dec 07 10:37:17 2013 +0800
-# $Author: Xinyu Zhou <zxytim[at]gmail[dot]com>
 
 import scipy.io.wavfile as wavfile
 import numpy as np
@@ -59,4 +56,3 @@ class Sample(object):
 
 
 # vim: foldmethod=marker
-

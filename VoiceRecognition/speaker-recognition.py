@@ -1,8 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# File: speaker-recognition.py
-# Date: Sun Feb 22 22:36:46 2015 +0800
-# Author: Yuxin Wu <ppwwyyxxc@gmail.com>
 
 import argparse
 import sys
