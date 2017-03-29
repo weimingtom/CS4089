@@ -155,11 +155,11 @@ def train_model(path) :
     [images, labels, people] = get_images(path, (256, 256))
     labels= numpy.asarray(labels, dtype= numpy.int32)
     # initializing eigen_model and training
-    print("Initializing LBPH FaceRecognizer and training...")
+    # print("Initializing LBPH FaceRecognizer and training...")
     sttime = time.clock()
     eigen_model = cv2.createLBPHFaceRecognizer()
     eigen_model.train(images, labels)
-    print("Successfully completed training in " + str(time.clock() - sttime) + " seconds!")
+    # print("Successfully completed training in " + str(time.clock() - sttime) + " seconds!")
     return [eigen_model, people]
 
 def detect_faces(frontal_face, image) :
@@ -184,7 +184,7 @@ def the_real_test(eigen_model, people, subject_directory, frontal_face) :
         final_5 = []
         box_text = "Subject: "
         while(True) :
-            print(counter)
+            # print(counter)
             ret, frame = cap.read()
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.equalizeHist(gray_frame)
@@ -211,14 +211,14 @@ def the_real_test(eigen_model, people, subject_directory, frontal_face) :
                     if counter > 20 :
                         final_5.append(max_label)
                         # it always takes max_label into consideration
-                        print("[" + str(len(final_5)) + "] Detected face is: " + people[max_label])
+                        # print("[" + str(len(final_5)) + "] Detected face is: " + people[max_label])
                         if (predicted_conf / 100.0) > 80 and len(final_5) == 5 :
                         # if len(final_5) == 5 :
-                            print("connection timed out...")
+                            # print("connection timed out...")
                             return True, people[max_label]
                             # raise GetOutOfLoop
                         else :
-                            print("No matching faces recognized!")
+                            # print("No matching faces recognized!")
                             return False, people[max_label]
                             # raise GetOutOfLoop
             # else :
@@ -231,6 +231,8 @@ def the_real_test(eigen_model, people, subject_directory, frontal_face) :
             if (cv2.waitKey(5) & 0xFF == 27):
                 break
             # print(last_20)
+            if counter >= 250 :
+                return False, ""
         endtime = (time.clock() - sttime)
         cap.release()
         cv2.destroyAllWindows()
@@ -284,7 +286,7 @@ if __name__ == "__main__" :
         # train the saved dataset
         eigen_model, people = train_model(subject_directory)
         # print(eigen_model)
-        print(people)
+        # print(people)
         status_of_state, p_name = the_real_test(eigen_model, people, subject_directory, frontal_face)
         if p_name == entity_name :
             print("Authorized")
