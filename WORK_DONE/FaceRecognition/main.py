@@ -251,7 +251,7 @@ def create_reqd_dirs(input_images, output_faces, subject_directory) :
         os.makedirs(subject_directory)
 
 def usage_instructions() :
-    print("python main.py " + "<name of individual> " + "<test/train>")
+    print("python main.py " + "<test/train>" + " [<name of individual>]")
     sys.exit(1)
 
 if __name__ == "__main__" :
@@ -264,10 +264,10 @@ if __name__ == "__main__" :
     # load pre-trained frontalface cascade classifier
     frontal_face = cv2.CascadeClassifier(str(os.getcwd() + os.path.sep + "haarcascade_frontalface_default.xml"))
     # required arguments
-    entity_name = sys.argv[1]
-    type_of_method = sys.argv[2]
+    type_of_method = sys.argv[1]
     # simple condition check
     if type_of_method == "train" :
+        entity_name = sys.argv[2]
         # create required directories
         create_reqd_dirs(input_images, output_faces, subject_directory)
         # take images using camera
@@ -288,9 +288,6 @@ if __name__ == "__main__" :
         # print(eigen_model)
         # print(people)
         status_of_state, p_name = the_real_test(eigen_model, people, subject_directory, frontal_face)
-        if p_name == entity_name :
-            print("Authorized")
-        else :
-            print("Not Authorized")
+        print(p_name)
     else :
         usage_instructions()
