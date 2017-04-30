@@ -1,5 +1,8 @@
 # -*- coding: UTF-8 -*-
 
+import os
+import sys
+
 # 1) Face
 #       python main.py <NameOfIndividual> test
 # 2) Voice

@@ -2,7 +2,7 @@
 import cv2
 # used to trained data to disk
 import pickle
-import cv2.cv as cv
+# import cv2.cv as cv
 import numpy
 # perform various file operations like creating and listing directories
 import os
@@ -94,7 +94,7 @@ def detect_faces_in_image(input_images, output_faces) :
         # converting color image to grayscale image
         gray_img = cv2.cvtColor(color_img, cv2.COLOR_BGR2GRAY)
 		# find the bounding boxes around detected faces in images
-        bBoxes = frontal_face.detectMultiScale(gray_img, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30), flags = cv.CV_HAAR_SCALE_IMAGE)
+        bBoxes = frontal_face.detectMultiScale(gray_img, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30), flags = cv2.CV_HAAR_SCALE_IMAGE)
 		# print(bBoxes)
         for box in bBoxes :
 			# print(box)
@@ -166,7 +166,7 @@ def detect_faces(frontal_face, image) :
     '''
     Takes an image as input and returns an array of bounding box(es).
     '''
-    bBoxes = frontal_face.detectMultiScale(image, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags = cv.CV_HAAR_SCALE_IMAGE)
+    bBoxes = frontal_face.detectMultiScale(image, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags = cv2.CV_HAAR_SCALE_IMAGE)
     return bBoxes
 
 def the_real_test(eigen_model, people, subject_directory, frontal_face) :
@@ -255,7 +255,7 @@ def usage_instructions() :
     sys.exit(1)
 
 if __name__ == "__main__" :
-    if len(sys.argv) != 3 :
+    if len(sys.argv) < 2 or len(sys.argv) > 3 :
         usage_instructions()
     # paths to input and output images
     input_images = str(os.getcwd()) + os.path.sep + "input_images"
