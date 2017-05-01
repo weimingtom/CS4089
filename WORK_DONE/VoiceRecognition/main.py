@@ -1,6 +1,12 @@
+# -*- coding: UTF-8 -*-
+
+#
 import pyaudio
+#
 import wave
+# perform various file operations like creating and listing directories
 import os
+# take command line arguments and proper termination of program
 import sys
 
 def get_audio_input(FORMAT, CHANNELS, RATE, CHUNK, RECORD_SECONDS, WAVE_OUTPUT_FILENAME) :
