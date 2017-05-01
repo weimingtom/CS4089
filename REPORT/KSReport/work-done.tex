@@ -1,10 +1,10 @@
-\section{Introduction}
+\chapter{Introduction}
 Biometric Security is gaining more and more attention recently. This project
 attempts to implement an application which can take the voice input from a
 microphone, face input from a camera, and verify the authenticity of the user
 accessing the system. \\
 
-\section{Motivation}
+\chapter{Motivation}
 Human beings have reached a stage where it is no longer convenient to type the
 password when they want to be authenticated. This was the basic motivation of
 this project, i.e., to replace the password input using a keyboard, and instead
@@ -16,18 +16,18 @@ There exists individual solutions for each of these individual tasks. But, these
 solutions are proprietary and requires specific licenses to use the offered
 services. \\
 
-\section{Problem Statement}
+\chapter{Problem Statement}
 To design a security system for GNU/Linux operating system using biometric
 of the user, i.e., the face and the voice of the user, that would replace the
 traditional password input using a keyboard. \\
 
-\section{Related Works}
+\chapter{Related Works}
 \begin{enumerate}
   \item Google Now \url{https://www.google.com/search/about/learn-more/now/}
   \item Microsoft Windows Hello \url{https://support.microsoft.com/en-in/help/17215/windows-10-what-is-hello}
 \end{enumerate}
 
-\section{High Level Design}
+\chapter{High Level Design}
 \begin{enumerate}
   \item Design a function which takes the user voice through the microphone,
         and the name of the user and returns True or False, accordingly.
@@ -42,7 +42,9 @@ traditional password input using a keyboard. \\
         \end{itemize}
 \end{enumerate}
 
-\section{Literature Survey}
+\chapter{Literature Survey}
+
+\section{Face Recognition}
 
 \subsection{Background and Related Work}
 Much of the work in computer recognition of faces have been approached by
@@ -223,6 +225,8 @@ LBP is done as part of the training process. \\
 The recognition, using the LBPH approach, takes about 30 milliseconds
 implemented in Python on an Intel Core i5, using face images of size 132 x 132. \\
 
+\section{Voice Recognition}
+
 \subsection{Background and Related Work}
 Speaker recognition is the identification of the person who is speaking by
 characteristics of their voices (voice biometrics), also called voice recognition. \\
@@ -265,12 +269,4 @@ Speaker recognition is an important part of Human-Computer Interaction (HCI). As
   After training, the model can give the score of fitness for every input feature vector, measuring the probability that the vector belongs to this model. Therefore in the task of speaker recognition, we can train a GMM for every speaker. Then for a input signal, we extract lists of feature vectors for it, and calculate the overall likelihood that the vector belongs to each model. The speaker whose model fits the input best will be chosen as the answer. \\
   Moreover, an enhancement has been done to the original GMM method. The training of GMM first requires a random initialization of the means of all the components. However, we can first use K-means algorithm to perform a clustering to all the vectors, then use the clustered centers to initialize the training of GMM. This enhancement can speed up the training and also give a better training result.
   \item Joint Factor Analysis (JFA) is a typical method which behave very well in classification problems, due to its ability to account for different types of variability in training data. Within all the factor analysis methods, JFA was proved to outperform other methods in the task of speaker recognition. \\  JFA models the user by supervector, i.e., a C x F dimension vector, where C is the number of components in the Universal Background Model, trained by GMM on all the training data, and F is the dimension of the acoustic feature vector. The supervector of an utterance is obtained by concatenating all the C means vectors in the trained GMM model.
-\end{enumerate}
-
-\section{Work Plan}
-\begin{enumerate}
-  \item Learn how the GNU/Linux login screen works, and possible ways to overwrite it.
-  \item Implement the custom application as the new login screen in GNU/Linux system.
-  \item Discover the ways to improve the application, and document the challenges
-        faced during the implementation phase.
 \end{enumerate}
