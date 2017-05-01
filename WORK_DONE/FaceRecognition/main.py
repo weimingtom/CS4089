@@ -60,10 +60,11 @@ def take_images_for_training(input_images, entity_name) :
     print("keep your face in different angles")
     while(True) :
         ret , frame = capture.read()
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        # cv2.imshow('frame',gray)
-        print("writing to file " + str(i) + ".png")
-        cv2.imwrite(path_to_save_images + str(entity_name + '_' + str(i)) + '.png', gray)
+        if ret :
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            # cv2.imshow('frame',gray)
+            print("writing to file " + str(i) + ".png")
+            cv2.imwrite(path_to_save_images + str(entity_name + '_' + str(i)) + '.png', gray)
         if cv2.waitKey(10) & 0xFF == ord('q') :
             break
         i = i + 1
