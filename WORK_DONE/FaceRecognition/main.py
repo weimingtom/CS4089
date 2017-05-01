@@ -1,8 +1,10 @@
+# -*- coding: UTF-8 -*-
 
+#
 import cv2
 # used to trained data to disk
 import pickle
-# import cv2.cv as cv
+#
 import numpy
 # perform various file operations like creating and listing directories
 import os
