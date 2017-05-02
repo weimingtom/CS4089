@@ -271,6 +271,35 @@ Speaker recognition is an important part of Human-Computer Interaction (HCI). As
   \item Joint Factor Analysis (JFA) is a typical method which behave very well in classification problems, due to its ability to account for different types of variability in training data. Within all the factor analysis methods, JFA was proved to outperform other methods in the task of speaker recognition. \\  JFA models the user by supervector, i.e., a C x F dimension vector, where C is the number of components in the Universal Background Model, trained by GMM on all the training data, and F is the dimension of the acoustic feature vector. The supervector of an utterance is obtained by concatenating all the C means vectors in the trained GMM model.
 \end{enumerate}
 
-\section{The BioMetric System}
+\section{The Biometric System}
 
-Here, 
+\subsection{Advantages of Face Recognition}
+
+\begin{enumerate}
+  \item Face recognition systems are the least intrusive from a biometric sampling point of view because they neither require contact nor the awareness of the subject.
+  \item The biometric works with legacy photograph databases, video tape and other image sources.
+  \item It is a fairly good biometric identifier for small scale verification application.
+\end{enumerate}
+
+\subsection{Disadvantages of Face Recognition}
+
+\begin{enumerate}
+  \item A face needs to be well-lit by controled light sources in automated face authentication systems.
+  \item Face is a poor biometric for use in a pure identification protocol, it performs better in verification.
+\end{enumerate}
+
+\subsection{Advantages of Voice Recognition}
+
+\begin{enumerate}
+  \item Voice is  natural biometric (one that people use instinctively to identify each other) under certain circumstances and machine decisions can be verified by relatively unskilled operators.
+  \item The voice biometric requires only inexpensive hardware and is easily deployable over existing, ubiquitous communications infrastructure. Voice is therefor very suitable for pervasive security management.
+  \item Voice allows incremental authentication protocols. For example, the protocol prescribes waiting for more voice data when a higher degree of recognition confidence is needed.
+\end{enumerate}
+
+\subsection{Disadvantages of Voice Recognition}
+
+\begin{enumerate}
+  \item Speech characterstics can drift away from models with age.
+  \item With the improvement of text-to-speech technology improving, it becomes possible to create non-existent identities with machine voices and trainable speech synthesis may make it possible to create an automatic system that can imitate a given saying anything.
+  \item Voice recognition is dependent on the quality of the captured audio signal. Speaker identification systems are susceptible to background noise, channel noise, and unknown channel or microphone characterstics.
+\end{enumerate}
