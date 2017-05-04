@@ -25,6 +25,7 @@
 \usepackage{url} %for proper url entries
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={Security Implementation using Biometric}, pdfauthor={Shrimadhav U K _ B130253CS}, pdfsubject={CS4089_Project}, pdfkeywords={r,e,l,e,v,a,n,t,k,e,y,w,o,r,d,s}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
 %\usepackage[final]{pdfpages} %for embedding another pdf, remove if not required
+\usepackage{float}
 
 \begin{document}
 \renewcommand\bibname{References} %Renames "Bibliography" to "References" on ref page
@@ -38,9 +39,9 @@
 \input{./certificate.tex}
 \input{./acknow.tex}
 \input{./abstract.tex}
-
+\addtocontents{toc}{\protect\enlargethispage{\baselineskip}}
 \tableofcontents
-%\listoffigures
+\listoffigures
 
 \newpage
 \pagenumbering{arabic} %reset numbering to normal for the main content

@@ -30,21 +30,38 @@ traditional password input using a keyboard. \\
 \input{./literaturesurvey.tex}
 
 \chapter{Design}
-\begin{enumerate}
-  \item Design a function which takes the user voice through the microphone,
-        and the name of the user and returns True or False, accordingly.
-  \item Design a function which takes an image of the user, using the camera,
-        and the name of the user and returns True or False, accordingly.
-  \item Finally, design a system which unifies the functions designed above.
-        The system should be able:
-        \begin{itemize}
-          \item to override the default login screen in a GNU/Linux system.
-          \item to ensure the integrity of the confidential details created
-                using the above functions.
-        \end{itemize}
-\end{enumerate}
+
+\begin{figure}[H]%[!t]
+\centering
+\includegraphics[width=5.5in]{./design.png}
+% where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Design}
+\label{fig:High_Level_Design}
+\end{figure}
+
+%\begin{enumerate}
+%  \item Design a function which takes the user voice through the microphone,
+%        and the name of the user and returns True or False, accordingly.
+%  \item Design a function which takes an image of the user, using the camera,
+%        and the name of the user and returns True or False, accordingly.
+%  \item Finally, design a system which unifies the functions designed above.
+%        The system should be able:
+%        \begin{itemize}
+%          \item to override the default login screen in a GNU/Linux system.
+%          \item to ensure the integrity of the confidential details created
+%                using the above functions.
+%        \end{itemize}
+%\end{enumerate}
 
 \chapter{Implementation, Result, and Analysis}
+
+\input{./facedesign.tex}
+
+\newpage
+
+\input{./voicealgorithms.tex}
 
 \section{The Biometric System}
 
