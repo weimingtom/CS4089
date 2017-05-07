@@ -8,15 +8,15 @@
   \item Feature Extraction
     \begin{itemize}
       \item Mel-Frequency Cepstral Coefficient (MFCC) is a representation of the short term power spectrum of a sound, based on a linear cosine transform of a log power spectrum on a non-linear mel-scale of frequency . MFCC is the most widely used features in Automatic Speech Recognition, and it can also be applied to speaker recognition task. The process to extract MFCC feature is demonstrated in Figure \ref{fig:MFCC_fig_one}. \\
-      %\begin{figure}[!t]
-      %\centering
-      %\includegraphics[width=2.5in]{./MFCC-mel-filterbank.png}
+      \begin{figure}[!t]
+      \centering
+      \includegraphics[width=2.5in]{./MFCC-mel-filterbank.png}
       % where an .eps filename suffix will be assumed under latex,
       % and a .pdf suffix will be assumed for pdflatex; or what has been declared
       % via \DeclareGraphicsExtensions.
-      %\caption{MFCC Feature Extraction Process}
-      %\label{fig:MFCC_fig_one}
-      %\end{figure}
+      \caption{MFCC Feature Extraction Process}
+      \label{fig:MFCC_fig_one}
+      \end{figure}
       \\
       \item Linear Predictive Coding (LPC) is a tool used in audio signal processing and speech processing for representing the spectral envelope of a digital signal of speech in compressed form, using the information of a Linear predictive Model. \\
       The basic assumption in LPC is that, the n th signal is a linear combination of the previous p signals. Therefore, to estimate the coefficients ai, we have to minimize the squared error. This optimization can be done by Levinson-Durbin algorithm.
