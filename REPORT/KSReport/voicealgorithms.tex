@@ -4,10 +4,10 @@
 \subsection{Algorithm Used}
 \begin{enumerate}
   \item An utterance of a user is collected during the enrollment procedure.
-  \item Voice Activity Detection is performed: Signals must be first filtered to rule out the silence part, otherwise the training might be seriously biased.
+  \item Voice Activity Detection is performed: The silent part of the speech signals must be filtered out to decrease the bias that might occur during training.
   \item Feature Extraction
     \begin{itemize}
-      \item Mel-Frequency Cepstral Coefficient (MFCC) is a representation of the short term power spectrum of a sound, based on a linear cosine transform of a log power spectrum on a non-linear mel-scale of frequency . MFCC is the most widely used features in Automatic Speech Recognition, and it can also be applied to speaker recognition task. The process to extract MFCC feature is demonstrated in Figure \ref{fig:MFCC_fig_one}. \\
+      \item Mel-Frequency Cepstral Coefficient (MFCC) is a representation of the short term power spectrum of a sound, based on a linear cosine transform of a log power spectrum on a non-linear mel-scale of frequency. This can be applied to speaker recognition task. The process to extract MFCC feature is demonstrated in Figure \ref{fig:MFCC_fig_one}. \\
       \begin{figure}[!t]
       \centering
       \includegraphics[width=2.5in]{./MFCC-mel-filterbank.png}
@@ -19,7 +19,7 @@
       \end{figure}
       \\
       \item Linear Predictive Coding (LPC) is a tool used in audio signal processing and speech processing for representing the spectral envelope of a digital signal of speech in compressed form, using the information of a Linear predictive Model. \\
-      The basic assumption in LPC is that, the n th signal is a linear combination of the previous p signals. Therefore, to estimate the coefficients ai, we have to minimize the squared error. This optimization can be done by Levinson-Durbin algorithm.
+      The basic  assumption that is used in LPC is that, the n th signal is a linear combination of the previous p signals. An optimization can be done by the Levinson-Durbin algorithm, to estimate the coefficients ai in the signal, the squared error should be minimized.
     \end{itemize}
   \item Gaussian Mixture Model (GMM) is used in acoustic learning task such as speaker recognition, since it describes the varied distribution of all the feature vectors. Therefore, GMM is merely a weighted combination of multivariate Gaussian distribution which assumes feature vectors are independent. We use diagonal covariance since the dimensions of the feature vector is independent to each other. GMM can describe the distribution of feature vector with several clusters, as shown in Figure \ref{fig:GMM_fig_one}. \\
   \begin{figure}[!t]
