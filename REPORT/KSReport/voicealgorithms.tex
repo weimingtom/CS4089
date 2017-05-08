@@ -21,7 +21,9 @@
       \item Linear Predictive Coding (LPC) is a tool used in audio signal processing and speech processing for representing the spectral envelope of a digital signal of speech in compressed form, using the information of a Linear predictive Model. \\
       The basic  assumption that is used in LPC is that, the n th signal is a linear combination of the previous p signals. An optimization can be done by the Levinson-Durbin algorithm, to estimate the coefficients ai in the signal, the squared error should be minimized.
     \end{itemize}
-  \item Gaussian Mixture Model (GMM) is used in acoustic learning task such as speaker recognition, since it describes the varied distribution of all the feature vectors. Therefore, GMM is merely a weighted combination of multivariate Gaussian distribution which assumes feature vectors are independent. We use diagonal covariance since the dimensions of the feature vector is independent to each other. GMM can describe the distribution of feature vector with several clusters, as shown in Figure \ref{fig:GMM_fig_one}. \\
+    
+    \item Gaussian Mixture Model (GMM) is a weighted combination of multivariate Gaussian distribution which assumes feature vectors are independent. This is used in acoustic training task , such as speaker recognition, as it can describe the distribution of all feature vectors. Since the dimensions of the feature vector are independent of each other, diagonal covariance is used.  GMM can also describe the distribution of feature vectors as shown in Figure \ref{fig:GMM_fig_one}. \\
+
   \begin{figure}[!t]
   \centering
   \includegraphics[width=2.5in]{./gmm.png}
@@ -31,8 +33,7 @@
   \caption{A Two Dimensional GMM with Two Components}
   \label{fig:GMM_fig_one}
   \end{figure}
-  \\
-  After training, the model can give the score of fitness for every input feature vector, measuring the probability that the vector belongs to this model. Therefore in the task of speaker recognition, we can train a GMM for every speaker. Then for a input signal, we extract lists of feature vectors for it, and calculate the overall likelihood that the vector belongs to each model. The speaker whose model fits the input best will be chosen as the answer. \\
-  Moreover, an enhancement has been done to the original GMM method. The training of GMM first requires a random initialization of the means of all the components. However, we can first use K-means algorithm to perform a clustering to all the vectors, then use the clustered centers to initialize the training of GMM. This enhancement can speed up the training and also give a better training result.
+
+  Also, an enhancement has been done to the original GMM method. The training phase requires an initialization of the means of all the components in the GMM. But, we first use K-means algorithm to perform a clustering of all the feature vectors, and then use these clustered centers to initialize the training of the GMM. It has been found that, this can speedup the training and also give a better training result.
   \item Joint Factor Analysis (JFA) is a typical method which behave very well in classification problems, due to its ability to account for different types of variability in training data. Within all the factor analysis methods, JFA was proved to outperform other methods in the task of speaker recognition. \\  JFA models the user by supervector, i.e., a C x F dimension vector, where C is the number of components in the Universal Background Model, trained by GMM on all the training data, and F is the dimension of the acoustic feature vector. The supervector of an utterance is obtained by concatenating all the C means vectors in the trained GMM model.
 \end{enumerate}

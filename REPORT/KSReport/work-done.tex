@@ -49,6 +49,11 @@ traditional password input using a keyboard. \\
 \label{fig:High_Level_Design}
 \end{figure}
 
+Both the biometric tasks follow a similar approach. First the user face is enrolled. The face-box is detected, the features of this are extracted  and classified into a model. \\
+A similar approach is followed for the Voice Recognition part. \\
+After both the models are obtained, a combined model is formed using the criteria such that the anomalies of voice recognition can be overcome by the use f face recognition and vice-versa. \\
+The obtained model is then used to recognize the authenticity of an already enrolled user.
+
 %\begin{enumerate}
 %  \item Design a function which takes the user voice through the microphone,
 %        and the name of the user and returns True or False, accordingly.
